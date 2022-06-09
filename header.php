@@ -1,6 +1,8 @@
+<?php
+ session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
 	<!-- META ============================================= -->
@@ -64,13 +66,17 @@
 					<div class="topbar-left">
 						<ul>
 							<li><a href="faq-1.html"><i class="fa fa-question-circle"></i>Ask a Question</a></li>
-							<li><a href="javascript:;"><i class="fa fa-envelope-o"></i>Support@website.com</a></li>
+							<li><a href="https://coderitsolution.com/"><i class="fa fa-envelope-o"></i>coderitsolution.com</a></li>
 						</ul>
 					</div>
 					<div class="topbar-right">
 						<ul>
+							<?php if(isset($_SESSION['st_loggedin'])) : ?>
+							<li><a href="deshbord/index.php">Student Deshboard</a></li>
+							<?php else :?>
 							<li><a href="login.php">Login</a></li>
 							<li><a href="registration.php">Registration</a></li>
+							<?php endif ;?>
 						</ul>
 					</div>
 				</div>

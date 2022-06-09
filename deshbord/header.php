@@ -6,14 +6,7 @@ if(!isset($_SESSION['st_loggedin'])){
     header('location:../login.php');
 }
 
-
-
-
-
 ?>
-
-
-
 
 <!DOCTYPE html>
 <html lang="en">

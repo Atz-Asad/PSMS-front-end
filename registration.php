@@ -167,7 +167,7 @@ if(isset($_POST['st_submit'])){
 					<h2 class="title-head">Student <span>Registration</span></h2>
 					<p>Login Your Account <a href="login.php">Click here</a></p>
 				</div>	
-				<form class="contact-bx" method="PoST" >
+				<form class="contact-bx" method="POST" >
 
 					<?php if(isset($error)) :?>
 						<div class="alert alert-danger">

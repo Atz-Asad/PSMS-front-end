@@ -25,28 +25,34 @@ if(isset($_POST['st_login_btn'])){
 			$_SESSION['st_loggedin'] = $stData;
 
 			// Get verifed Status
-			$is_email_varifed = Student('is_email_verified',$_SESSION['st_loggedin'][0]['id']);
-			$is_mobile_varifed = Student('is_mobile_verified',$_SESSION['st_loggedin'][0]['id']);
+			$is_email_varified = Student('is_email_verified',$_SESSION['st_loggedin'][0]['id']);
+			$is_mobile_varified = Student('is_mobile_verified',$_SESSION['st_loggedin'][0]['id']);
 
-			if($is_email_varifed == 1 AND $is_mobile_varifed == 1){
+			if($is_email_varified == 1 AND $is_mobile_varified == 1){
 				header('location:deshbord/index.php');
 			}
 
 			else{
 				header('location:verify.php');
-			}
-			
-
-			
+			}			
 		}
 		else{
 			$error = "Username or password  is wrong !";
 		}
 	}
 }
-// if(isset($_SESSION['st_loggedin'])){
-// 	header('location:deshbord/index.php');
-// }
+
+if(isset($_SESSION['st_loggedin'])){
+	$is_email_varified = Student('is_email_verified',$_SESSION['st_loggedin'][0]['id']);
+	$is_mobile_varified = Student('is_mobile_verified',$_SESSION['st_loggedin'][0]['id']);
+
+	if($is_email_varified == 1 AND $is_mobile_varified == 1){
+		header('location:deshbord/index.php');
+	}
+	else{
+		header('location:verify.php');
+	}
+}
 
 ?>
 

@@ -2,8 +2,14 @@
 require_once('../config.php');
 
 session_start();
-if(!isset($_SESSION['st_loggedin'])){
-    header('location:../login.php');
+
+$email_status = Student('is_email_verified',$_SESSION['st_loggedin'][0]['id']);
+$mobile_status = Student('is_mobile_verified',$_SESSION['st_loggedin'][0]['id']);
+
+
+
+if(!isset($_SESSION['st_loggedin']) OR $email_status == 1 OR $mobile_status == 1){
+    header('location:logout.php');
 }
 
 ?>
@@ -83,7 +89,7 @@ if(!isset($_SESSION['st_loggedin'])){
 				<!-- header left menu start -->
 				<ul class="ttr-header-navigation">
 					<li>
-						<a href="../index.php" class="ttr-material-button ttr-submenu-toggle">HOME</a>
+						<a href="index.php" class="ttr-material-button ttr-submenu-toggle">HOME</a>
 					</li>
 					<li>
 						<a href="#" class="ttr-material-button ttr-submenu-toggle">QUICK MENU <i class="fa fa-angle-down"></i></a>

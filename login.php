@@ -24,7 +24,18 @@ if(isset($_POST['st_login_btn'])){
 			$stData = $stCount->fetchAll(PDO::FETCH_ASSOC);
 			$_SESSION['st_loggedin'] = $stData;
 
-			header('location:deshbord/index.php');
+			// Get verifed Status
+			$is_email_varifed = Student('is_email_verified',$_SESSION['st_loggedin'][0]['id']);
+			$is_mobile_varifed = Student('is_mobile_verified',$_SESSION['st_loggedin'][0]['id']);
+
+			if($is_email_varifed == 1 AND $is_mobile_varifed == 1){
+				header('location:deshbord/index.php');
+			}
+
+			else{
+				header('location:verify.php');
+			}
+			
 
 			
 		}
@@ -33,9 +44,9 @@ if(isset($_POST['st_login_btn'])){
 		}
 	}
 }
-if(isset($_SESSION['st_loggedin'])){
-	header('location:deshbord/index.php');
-}
+// if(isset($_SESSION['st_loggedin'])){
+// 	header('location:deshbord/index.php');
+// }
 
 ?>
 

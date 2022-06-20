@@ -180,7 +180,7 @@
 									<li><a href="blog-details.html">Blog Details</a></li>
 								</ul>
 							</li>
-							<li class="nav-dashboard"><a href="deshbord/index.php" >Student Dashboard </a></li>
+							<li class="nav-dashboard"><a href="./deshbord/index.php" >Student Dashboard </a></li>
 						</ul>
 						<div class="nav-social-link">
 							<a href="javascript:;"><i class="fa fa-facebook"></i></a>

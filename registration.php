@@ -28,19 +28,19 @@ if(isset($_POST['st_submit'])){
         $error = "Email not valid!";
     }
 	else if($stcountEmail != 0){
-		$eror = "Email already Used , try another !";
+		$error = "Email already Used , try another !";
 	}
 	else if(empty($st_mobile)){
 		$error = "Mobile Number is  Required!";
 	}
 	else if(!is_numeric($st_mobile)){
-		$eror = "Mobile number must be number!";
+		$error = "Mobile number must be number!";
 	}
 	else if(strlen($st_mobile) !=11){
-		$eror = "Invalid Mobile  number!";
+		$error = "Invalid Mobile  number!";
 	}
 	else if($stcountMobile != 0){
-		$eror = "Mobile Number already Used , try another !";
+		$error = "Mobile Number already Used , try another !";
 	}
 	else if(empty($st_father)){
 		$error = "Father Name is  Required!";
@@ -49,10 +49,10 @@ if(isset($_POST['st_submit'])){
 		$error = "Father Mobile Number is  Required!";
 	}
 	else if(!is_numeric($st_father_mobile)){
-		$eror = "Father's Mobile number must be number!";
+		$error = "Father's Mobile number must be number!";
 	}
 	else if(strlen($st_father_mobile) !=11){
-		$eror = "Invalid Father's Mobile mobile number!";
+		$error = "Invalid Father's Mobile mobile number!";
 	}
 	else if(empty($st_address)){
 		$error = "Address is  Required!";

@@ -6,11 +6,10 @@ session_start();
 $email_status = Student('is_email_verified',$_SESSION['st_loggedin'][0]['id']);
 $mobile_status = Student('is_mobile_verified',$_SESSION['st_loggedin'][0]['id']);
 
-
-
-if(!isset($_SESSION['st_loggedin']) OR $email_status == 1 OR $mobile_status == 1){
+if(!isset($_SESSION['st_loggedin']) OR $email_status != 1 OR $mobile_status != 1){
     header('location:logout.php');
 }
+$photo = Student('photo',$_SESSION['st_loggedin'][0]['id']);
 
 ?>
 
@@ -47,7 +46,9 @@ if(!isset($_SESSION['st_loggedin']) OR $email_status == 1 OR $mobile_status == 1
 	<script src="assets/js/html5shiv.min.js"></script>
 	<script src="assets/js/respond.min.js"></script>
 	<![endif]-->
-	
+	<!-- ===fontawosome==== -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
 	<!-- All PLUGINS CSS ============================================= -->
 	<link rel="stylesheet" type="text/css" href="assets/css/assets.css">
 	<link rel="stylesheet" type="text/css" href="assets/vendors/calendar/fullcalendar.css">
@@ -184,12 +185,17 @@ if(!isset($_SESSION['st_loggedin']) OR $email_status == 1 OR $mobile_status == 1
 						</div>
 					</li>
 					<li>
-						<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar"><img alt="" src="assets/images/testimonials/pic3.jpg" width="32" height="32"></span></a>
+						<a href="#" class="ttr-material-button ttr-submenu-toggle"><span class="ttr-user-avatar">
+						<?php if($photo !=null):?>	
+							<img style="width:100%;height:100%;object-fit:cover;" src="<?php echo $photo ;?>">
+						<?php else :?>	
+							<img alt="" src="assets/images/testimonials/pic3.jpg" width="32" height="32">
+						<?php endif;?>
+						</span></a>
 						<div class="ttr-header-submenu">
 							<ul>
-								<li><a href="user-profile.html">My profile</a></li>
-								<li><a href="list-view-calendar.html">Activity</a></li>
-								<li><a href="mailbox.html">Messages</a></li>
+								<li><a href="profile.php">Profile</a></li>
+								<li><a href="change-password.php">Change Password</a></li>
 								<li><a href="logout.php">Logout</a></li>
 							</ul>
 						</div>
@@ -323,22 +329,26 @@ if(!isset($_SESSION['st_loggedin']) OR $email_status == 1 OR $mobile_status == 1
 		                	<span class="ttr-label">Add listing</span>
 		                </a>
 		            </li>
-					<li>
-						<a href="#" class="ttr-material-button">
-							<span class="ttr-icon"><i class="ti-user"></i></span>
-		                	<span class="ttr-label">My Profile</span>
-		                	<span class="ttr-arrow-icon"><i class="fa fa-angle-down"></i></span>
-		                </a>
-		                <ul>
-		                	<li>
-		                		<a href="user-profile.html" class="ttr-material-button"><span class="ttr-label">User Profile</span></a>
-		                	</li>
-		                	<li>
-		                		<a href="teacher-profile.html" class="ttr-material-button"><span class="ttr-label">Teacher Profile</span></a>
-		                	</li>
-		                </ul>
-		            </li>
+					
 		            <li class="ttr-seperate"></li>
+					<li>
+						<a href="profile.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-user"></i></span>
+		                	<span class="ttr-label">Profile</span>
+		                </a>
+		            </li>
+					<li>
+						<a href="change-password.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="ti-lock"></i></span>
+		                	<span class="ttr-label">Change password</span>
+		                </a>
+		            </li>
+					<li>
+						<a href="logout.php" class="ttr-material-button">
+							<span class="ttr-icon"><i class="fa-solid fa-arrow-right-from-bracket"></i></span>
+		                	<span class="ttr-label">Logout</span>
+		                </a>
+		            </li>
 				</ul>
 				<!-- sidebar menu end -->
 			</nav>

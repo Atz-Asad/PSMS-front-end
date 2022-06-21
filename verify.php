@@ -195,9 +195,9 @@ if(isset($_POST['st_mobile_verify_btn'])){
                         $email_status = Student('is_email_verified',$_SESSION['st_loggedin'][0]['id']);
                         $mobile_status = Student('is_mobile_verified',$_SESSION['st_loggedin'][0]['id']);
 
-                        if(isset($_SESSION['st_loggedin']) AND $email_status == 1 AND $mobile_status == 1){
-                            header('location:deshbord/index.php');
-                        }
+                        // if(isset($_SESSION['st_loggedin']) AND $email_status == 1 AND $mobile_status == 1){
+                        //     header('location:deshbord/index.php');
+                        // }
                     ?>
                     <p>Email:<?php
                     if($email_status == 1){

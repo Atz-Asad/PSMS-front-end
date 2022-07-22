@@ -95,11 +95,11 @@
                             </tr>
                             <tr>
                                 <td>Address:</td>
-                               <td><?php echo $email;?></td>
+                               <td><?php echo $address;?></td>
                             </tr>
                             <tr>
                                 <td>Roll:</td>
-                               <td><?php echo $address;?></td>
+                               <td><?php echo $roll;?></td>
                             </tr>
                             <tr>
                                 <td>Carrent Class:</td>
